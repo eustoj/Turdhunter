@@ -873,6 +873,12 @@ const Home = () => {
 function App() {
   return (
     <div className="App">
+      {/* Google AdSense Integration */}
+      <AdSense.Google
+        client="ca-pub-xxxxxxxxxxxxxxxx" // Replace with your AdSense Publisher ID
+        slot="xxxxxxxxxx" // Replace with your AdSense Ad Slot ID
+      />
+      
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}>
