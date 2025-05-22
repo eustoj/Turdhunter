@@ -1,38 +1,92 @@
 .App {
-    text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f9ff;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.cell {
+  width: 100%;
+  aspect-ratio: 1/1;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Make cells smaller on larger boards */
+@media (min-width: 768px) {
+  .game-board[style*="grid-template-columns: repeat(30, 1fr)"] .cell {
+    font-size: 0.8rem;
+  }
+  
+  .game-board[style*="grid-template-columns: repeat(50, 1fr)"] .cell,
+  .game-board[style*="grid-template-columns: repeat(80, 1fr)"] .cell {
+    font-size: 0.7rem;
+  }
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Pulsing animation for turd cells when game is over */
+@keyframes pulseTurd {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.App-link {
-    color: #61dafb;
+.cell svg.text-brown-600 {
+  color: #8B4513;
+  animation: pulseTurd 1s infinite;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Styles for flag animation */
+@keyframes flagWave {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.cell:hover .text-red-500 {
+  animation: flagWave 1s infinite;
+}
+
+/* Bubble-like appearance for cells */
+.cell {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.cell.bg-blue-200 {
+  background: linear-gradient(145deg, #90cdf4, #7ab6dd);
+}
+
+.cell.bg-blue-300 {
+  background: linear-gradient(145deg, #63b3ed, #4299e1);
+}
+
+.cell.bg-yellow-100 {
+  background: linear-gradient(145deg, #fef3c7, #fde68a);
+}
+
+.cell.bg-green-100 {
+  background: linear-gradient(145deg, #d1fae5, #a7f3d0);
+}
+
+.cell.bg-red-200 {
+  background: linear-gradient(145deg, #fecaca, #fca5a5);
 }
