@@ -6,6 +6,7 @@ import { FaFlag, FaPoop, FaQuestionCircle } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import Confetti from 'react-confetti';
 import { v4 as uuidv4 } from 'uuid';
+import AdSense from 'react-google-adsense';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
