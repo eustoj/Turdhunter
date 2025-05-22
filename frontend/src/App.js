@@ -571,9 +571,15 @@ const AdModal = ({ isOpen, onClose, onWatchComplete }) => {
         <div className="space-y-4">
           {!adWatched ? (
             <>
-              <div className="bg-gray-200 rounded-lg p-12 flex items-center justify-center">
-                <p className="text-center">Advertisement Loading...</p>
-                <p className="text-xl font-bold">{countdown}</p>
+              <div className="bg-gray-200 rounded-lg p-12 flex items-center justify-center flex-col">
+                <p className="text-center mb-4">Advertisement Loading...</p>
+                <p className="text-xl font-bold mb-4">{countdown}</p>
+                {/* Ad placement for Super Sniffer */}
+                <AdSense.Google
+                  client="ca-pub-xxxxxxxxxxxxxxxx" // Replace with your AdSense Publisher ID
+                  slot="xxxxxxxxxx" // Replace with your AdSense Ad Slot ID
+                  style={{ display: 'block', width: '300px', height: '250px' }}
+                />
               </div>
               <p className="text-center text-sm text-gray-600">Please wait {countdown} seconds...</p>
             </>
