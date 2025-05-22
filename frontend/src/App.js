@@ -622,7 +622,7 @@ const Home = () => {
   const [highScores, setHighScores] = useState([]);
   const [playerId, setPlayerId] = useState(() => {
     const storedId = localStorage.getItem('playerId');
-    return storedId || uuid.v4();
+    return storedId || uuidv4();
   });
   
   // Check subscription status on load
